@@ -20,7 +20,7 @@ export default function Result({croppedImages, onBack, onRestart}: {croppedImage
     };
 
     return (
-        <div className="overflow-y-auto md:flex md:px-10 md:gap-10 md:overflow-hidden md:py-5 md:h-dvh">
+        <div className="overflow-y-auto md:flex md:px-10 md:gap-10 md:overflow-hidden md:py-5 md:h-dvh ">
             <div className="flex flex-col justify-center items-center mt-10 md:mt-0 md:flex-1">
                 <Image src={"/starship.svg"} alt="Starship Image" width={200} height={200} className="self-center" />
                 <div className="mt-4">
