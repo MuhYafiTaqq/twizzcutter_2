@@ -20,8 +20,8 @@ export default function Result({croppedImages, onBack, onRestart}: {croppedImage
     };
 
     return (
-        <div className="overflow-y-auto">
-            <div className="flex flex-col justify-center items-center mt-10">
+        <div className="overflow-y-auto md:flex md:px-10 md:gap-10 md:overflow-hidden md:py-5 md:h-dvh">
+            <div className="flex flex-col justify-center items-center mt-10 md:mt-0 md:flex-1">
                 <Image src={"/starship.svg"} alt="Starship Image" width={200} height={200} className="self-center" />
                 <div className="mt-4">
                     <h6 className="text-black text-center font-bold text-2xl">Here The Result!</h6>
@@ -68,7 +68,7 @@ export default function Result({croppedImages, onBack, onRestart}: {croppedImage
                 </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-1 p-2 bg-black/30 rounded-xl border-2 border-black/75 border-dashed mt-8">
+            <div className="grid grid-cols-3 gap-1 p-4 bg-black/30 rounded-xl border-2 border-black/75 border-dashed mt-8 md:mt-0 mb-4 md:mb-0 md:flex-1 md:overflow-y-auto">
                 {croppedImages.map((image, index) => (
                     <div key={index} className="flex flex-col items-center relative">
                         <Image
@@ -76,7 +76,7 @@ export default function Result({croppedImages, onBack, onRestart}: {croppedImage
                             alt={`Cropped Image ${index}`}
                             width={200}
                             height={200}
-                            className="border border-black"
+                            className="border h-full w-full border-black"
                         />
                         <a href={image} download={`cropped-${index + 1}.png`} className="bg-blue-500 right-2 top-0 absolute text-white px-2 py-1 rounded mt-2">
                             <Image src={"/Download.svg"} alt="download icon" width={20} height={20} />
