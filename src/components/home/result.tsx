@@ -20,7 +20,7 @@ export default function Result({croppedImages, onBack, onRestart}: {croppedImage
     };
 
     return (
-        <div className="overflow-y-auto md:flex md:px-10 md:gap-10 md:overflow-hidden md:py-5 md:h-dvh ">
+        <div className="overflow-y-auto md:flex md:w-full md:px-10 md:gap-10 md:overflow-hidden md:py-5 md:h-dvh ">
             <div className="flex flex-col justify-center items-center mt-10 md:mt-0 md:flex-1">
                 <Image src={"/starship.svg"} alt="Starship Image" width={200} height={200} className="self-center" />
                 <div className="mt-4">
@@ -76,7 +76,7 @@ export default function Result({croppedImages, onBack, onRestart}: {croppedImage
                             alt={`Cropped Image ${index}`}
                             width={200}
                             height={200}
-                            className="border h-full w-full border-black"
+                            className="border border-black object-cover md:w-full"
                         />
                         <a href={image} download={`cropped-${index + 1}.png`} className="bg-blue-500 right-2 top-0 absolute text-white px-2 py-1 rounded mt-2">
                             <Image src={"/Download.svg"} alt="download icon" width={20} height={20} />
