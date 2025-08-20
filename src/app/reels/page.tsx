@@ -1,18 +1,51 @@
+"use client";
+
+import { motion } from "motion/react";
+import { HeroHighlight, Highlight } from "@/components/ui/hero-highlight";
+import Input from "./components/input";
+
+import Settings from "./components/settings";
+import { useState } from "react";
 
 export default function Reels() {
-    return (
-        <div className="flex flex-1 justify-center items-center">
-            <h2 className="text-2xl relative z-20 md:text-4xl lg:text-7xl font-bold text-center text-black font-sans tracking-tight">
-                Create reels grid{" "}
-                <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
-                <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-purple-500 via-violet-500 to-pink-500 [text-shadow:0_0_rgba(0,0,0,0.1)]">
-                    <span className="">cooming soon</span>
-                </div>
-                <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-purple-500 via-violet-500 to-pink-500 py-4">
-                    <span className="">cooming soon</span>
-                </div>
-                </div>
-            </h2>
-        </div>
-    );
+  // Perbaikan: Definisikan tipe state untuk image
+  const [image, setImage] = useState<string | null>(null);
+
+  return (
+    <div className="flex-1 justify-center items-center flex">
+      <div className="grid md:grid-cols-20 gap-4 md:p-6 p-2 h-full w-full grid-rows-20 md:grid-rows-1">
+        {!image ? (
+          <>
+            <div className="md:col-span-13 row-span-10 flex md:flex-1 flex-col md:items-center justify-center md:flex-row ">
+              <HeroHighlight className="md:flex-1">
+                <motion.h1
+                  initial={{
+                    opacity: 0,
+                    y: 20,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: [20, -5, 0],
+                  }}
+                  transition={{
+                    duration: 0.5,
+                    ease: [0.4, 0.0, 0.2, 1],
+                  }}
+                  className="text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-neutral-700 max-w-4xl leading-relaxed lg:leading-snug text-center mx-auto "
+                >
+                  Let's create and cut your cover reels,
+                  <Highlight className="text-black">twizzcutter.com</Highlight>
+                </motion.h1>
+              </HeroHighlight>
+            </div>
+            <div className="md:col-span-7 row-span-10 flex">
+              <Input onImageChange={setImage} />
+            </div>
+          </>
+        ) : (
+          <Settings images={image} setImages={setImage} />
+        )}
+      </div>
+    </div>
+  );
 }
